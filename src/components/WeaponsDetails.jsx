@@ -2,8 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom'
 import '../App.css';
 
-function ItemDetail({ match }) {
+function WeaponsDetails({ match }) {
     useEffect(() => {
+        console.log(match.params)
         fetchItem();
     }, []);
 
@@ -19,8 +20,8 @@ function ItemDetail({ match }) {
             }
         });
         const item = await data.json();
-        console.log(item.data.item);
-        setItem(item.data.item);
+        console.log(item);
+        setItem(item);
     }
 
     return (
@@ -30,9 +31,9 @@ function ItemDetail({ match }) {
 
                 <article className="artDescription">
                     <h1>description</h1>
-                    <h2>{item.description}</h2></article>
+                    <h2>{item.stats}</h2></article>
                 <article className="icon">
-                    <img src={item.images.icon} alt="images" /></article>
+                    <img src={item.image} alt="images" /></article>
                 <article className="artDescription">
                     <h1>Rarity</h1>
                     <h2>'{item.rarity}'</h2></article>
@@ -45,4 +46,4 @@ function ItemDetail({ match }) {
     );
 }
 
-export default ItemDetail;
+export default WeaponsDetails;

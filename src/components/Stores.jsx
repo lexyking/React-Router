@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import '../App.css';
 
-function Shop() {
+function Stores() {
     useEffect(() => {
         fetchItems();
     }, []);
@@ -11,7 +11,7 @@ function Shop() {
 
     const fetchItems = async () => {
         const token = '7ed8157727323faec95fa35f148f1397';
-        const data = await fetch('https://fortnite-api.theapinetwork.com/upcoming/get', {
+        const data = await fetch('https://fortnite-api.theapinetwork.com/store/get', {
             headers: {
                 Authorization: `${token}`
             }
@@ -23,13 +23,13 @@ function Shop() {
 
     return (
         <Fragment>
-            <h1>Shop Page</h1>
+            <h1>Welcome to Fortnite Stores</h1>
             <ul className="result">
                 {items.map(item =>
-                    <li key={item.itemId}><Link to={`/shop/${item.itemId}`} >
+                    <li key={item.itemId}><Link to={`/Stores/${item.itemId}`} className="nameLinks" >
                         {item.item.name}
                         <div>
-                            <img src={item.item.images.icon} />
+                            <img src={item.item.images.information} />
                         </div>
                     </Link></li>)}
             </ul>
@@ -37,4 +37,4 @@ function Shop() {
     );
 }
 
-export default Shop;
+export default Stores;
