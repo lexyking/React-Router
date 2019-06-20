@@ -2,8 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom'
 import '../App.css';
 
-function ItemDetail({ match }) {
+function StoreDetails({ match }) {
     useEffect(() => {
+        console.log(match.params)
         fetchItem();
     }, []);
 
@@ -45,4 +46,4 @@ function ItemDetail({ match }) {
     );
 }
 
-export default ItemDetail;
+export default StoreDetails;
